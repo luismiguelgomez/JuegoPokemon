@@ -18,6 +18,7 @@ public class ManejoArchivos {
 	private File f;
 	private Properties pro;
 	private ArrayList<String> pokemones = new ArrayList<String>();
+	private String [][] nombresPokemones = new String [15][1];
 	
 	/**
 	 * <b>precondiciones:</b> variable tipo Properties llamada pro y metodo cargarFichero() 
@@ -29,7 +30,6 @@ public class ManejoArchivos {
 		pro = new Properties();
 		pro = cargarFichero();
 	}
-
 	
 	/**
 	 * <b>precondiciones:</b> Variable f de tipo File, 
@@ -41,12 +41,12 @@ public class ManejoArchivos {
 	public Properties cargarFichero() throws Exception {
 		try {
 			pro.load(new FileReader
-					("archivosExternos\\agendaFisica.properties"));
+					("src/archivosExternos/agendaFisica.properties"));
 			listar();
 		} catch (FileNotFoundException e) {
 			throw new Exception("La ruta del archivo no se pudo encontrar");
 		} catch (IOException e) {
-			throw new Exception("Error al leer la información");
+			throw new Exception("Error al leer la informaciï¿½n");
 		}
 		
 		return null;
@@ -56,9 +56,11 @@ public class ManejoArchivos {
 	 * <b>precondiciones:</b> haber utilizado el metodo  cargarFichero()
 	 * <br>
 	 * <b>poscondiciones</b> Listar archivos y guardarlos
+	 * @throws Exception 
 	 */
-	private void listar() {
-		String [][] vectorPokemon = new String [15][6];
+	public String [][] listar() throws Exception {
+		
+		
 		int fila = 0;
 		
 		for (int i = 1; i < 15; i++) {
@@ -69,12 +71,7 @@ public class ManejoArchivos {
 			String defensa = pro.getProperty("pokemon.defensa" + i);
 			String salud = pro.getProperty("pokemon.salud" + i);
 			
-			vectorPokemon [fila][0] = nombre;
-			vectorPokemon [fila][1] = tipo;
-			vectorPokemon [fila][2] = velocidad;
-			vectorPokemon [fila][3] = ataque;
-			vectorPokemon [fila][4] = defensa;
-			vectorPokemon [fila][5] = salud;
+			nombresPokemones[fila][0] = nombre;
 			fila = fila + 1;
 			
 			System.out.println("pokemon "+ i + ":" + nombre);
@@ -87,10 +84,15 @@ public class ManejoArchivos {
 			pokemones.add(salud);
 		}
 		
-		System.out.println("AQUI BREACKPOINT");
-		
+		return nombresPokemones;
 	}
-	
-	
-	
+
+	public String[][] getNombresPokemones() {
+		return nombresPokemones;
+	}
+
+	public void setNombresPokemones(String[][] nombresPokemones) {
+		this.nombresPokemones = nombresPokemones;
+	}
+
 }
