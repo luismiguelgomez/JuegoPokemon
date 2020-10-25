@@ -17,6 +17,11 @@ public class tblEstiloEncabezado implements TableCellRenderer {
 
     
 	    @Override
+	    /**
+	     * <b>Precondiciones:</b> Tener como parametros : JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column
+	     * <b>Poscondiciones:</b> Renderizar tabla
+	     * @param JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column
+	     */
 	    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 	        
 	        JComponent jcomponent = null;

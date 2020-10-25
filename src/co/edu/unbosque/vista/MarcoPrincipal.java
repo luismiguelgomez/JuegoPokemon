@@ -7,6 +7,12 @@ import javax.swing.JPanel;
 public class MarcoPrincipal extends JFrame {
 	private JPanel panel;
 
+	/**
+	 * <b>Precondiciones:</b> Tener como parametros JPanel 
+	 * <b>Poscondiciones:</b> Iniciar el panel de JPanel
+	 * @param panel proveniente de JPanel
+	 * @throws HeadlessException retorna mensaje de error (si ocurre) proveniente del JPanel
+	 */
 	public MarcoPrincipal(JPanel panel) throws HeadlessException {
 		super();
 		this.panel = panel;

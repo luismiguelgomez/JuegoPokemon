@@ -20,7 +20,12 @@ public class Keys {
 	public static int ESCAPE = 6;
 	public static int F1 = 7;
 	
-
+	/**
+	 * <b>Precondiciones:</b> var int i, boolean b
+	 * <b>Poscondiciones:</b> movimiento por medio de teclado
+	 * @param i entero
+	 * @param b booleano
+	 */
 	public static void keySet(int i, boolean b) {
 		if (i == 38) { keyState[UP] = b; }
 		else if (i == 37) { keyState[LEFT] = b; }
@@ -32,20 +37,41 @@ public class Keys {
 		else if (i == 112) { keyState[F1] = b; }
 	}
 	
+	/**
+	 * <b>Precondiciones:</b> tener la variable : prevKeyState
+	 * <b>Poscondiciones:</b> update evento por teclado
+	 */
 	public static void update() {
 		for (int i = 0; i < 8; i++) {
 			prevKeyState[i] = keyState[i];
 		}
 	}
 
+	/**
+	 * <b>Precondiciones:</b> keyState
+	 * <b>Poscondiciones:</b> Revisa el estado de la tecla seleccionada
+	 * @param i entero
+	 * @return la posicion de la tecla presionada
+	 */
 	public static boolean isPressed(int i) {
 		return (keyState[i] && !prevKeyState[i]);
 	}
 
+	/**
+	 * <b>Precondiciones:</b> variable: keyState
+	 * <b>Poscondiciones:</b> movimiento por tecla hacia abajo
+	 * @param i entero
+	 * @return movimiento de keyState cuando es hacia abajo
+	 */
 	public static boolean isDown(int i) {
 		return keyState[i];
 	}
  
+	/**
+	 * <b>Precondiciones:</b> tener la variable : keyState
+	 * <b>Poscondiciones:</b> valida si movimiento es posible hacia abajo
+	 * @return boolean
+	 */
 	public static boolean anyKeyDown() {
 		for (int i = 0; i < 8; i++) {
 			if (keyState[i]) return true; 
@@ -53,12 +79,25 @@ public class Keys {
 		return false;
 	}
 
+	/**
+	 * <b>Precondiciones:</b> temer creada la variable: keyState
+	 * <b>Poscondiciones:</b> revisa la tecla presionada
+	 * @return boolean
+	 */
 	public static boolean anyKeyPress() {
 		for (int i = 0; i < 8; i++) {
 			if (keyState[i] && !prevKeyState[i]) return true; 
 		} 
 		return false;
 	}
+	
+	/**
+	 * <b>Precondiciones:</b> String s
+	 * <b>Poscondiciones:</b> update evento por teclado
+	 * @param s String con ruta de img
+	 * @return img
+	 * @throws IOException para problemas de lectura de url
+	 */
 	public Image intro(String s) throws IOException {
 		FileInputStream file = new FileInputStream(s);
 		Image intro = ImageIO.read(file);

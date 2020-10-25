@@ -20,6 +20,7 @@ public class ManejoArchivos {
 	private Pokemon pokemon;
 	private ArrayList<Pokemon> pokemones = new ArrayList<Pokemon>();
 	private String [][] nombresPokemones = new String [15][1];
+	private Dto dto;
 	
 	/**
 	 * <b>precondiciones:</b> variable tipo Properties llamada pro y metodo cargarFichero() 
@@ -44,6 +45,7 @@ public class ManejoArchivos {
 			pro.load(new FileReader
 					("archivosExternos\\agendaFisica.properties"));
 			listar();
+			dto = new Dto(pokemones);
 		} catch (FileNotFoundException e) {
 			throw new Exception("La ruta del archivo no se pudo encontrar");
 		} catch (IOException e) {
@@ -53,13 +55,14 @@ public class ManejoArchivos {
 		return null;
 	}
 
+	
 	/**
-	 * <b>precondiciones:</b> haber utilizado el metodo  cargarFichero()
+	 * <b>precondiciones:</b> haber utilizado el metodo: cargarFichero
 	 * <br>
 	 * <b>poscondiciones</b> Listar archivos y guardarlos
-	 * @throws Exception 
+	 * @return String nombresPokemones[][] 
 	 */
-	public String [][] listar() throws Exception {
+	public String [][] listar(){
 		
 		
 		int fila = 0;
@@ -83,18 +86,33 @@ public class ManejoArchivos {
 		return nombresPokemones;
 	}
 
+	/**
+	 * get de nombre de pokemones
+	 * @return String[][] con los nombre de los pokemones
+	 */
 	public String[][] getNombresPokemones() {
 		return nombresPokemones;
 	}
 
+	/**
+	 * Set de nombre de pokemones
+	 * @param nombresPokemones String[][] de nombre pokemones
+	 */
 	public void setNombresPokemones(String[][] nombresPokemones) {
 		this.nombresPokemones = nombresPokemones;
 	}
-
+	/**
+	 * get de pokemones
+	 * @return Arraylist de Pokemon
+	 */
 	public ArrayList<Pokemon> getPokemones() {
 		return pokemones;
 	}
-
+	
+	/**
+	 * Set de pokemones
+	 * @param pokemones Arraylist de pokemones
+	 */
 	public void setPokemones(ArrayList<Pokemon> pokemones) {
 		this.pokemones = pokemones;
 	}
