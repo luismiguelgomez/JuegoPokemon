@@ -17,7 +17,8 @@ public class ManejoArchivos {
 	//Properties
 	private File f;
 	private Properties pro;
-	private ArrayList<String> pokemones = new ArrayList<String>();
+	private Pokemon pokemon;
+	private ArrayList<Pokemon> pokemones = new ArrayList<Pokemon>();
 	private String [][] nombresPokemones = new String [15][1];
 	
 	/**
@@ -41,7 +42,7 @@ public class ManejoArchivos {
 	public Properties cargarFichero() throws Exception {
 		try {
 			pro.load(new FileReader
-					("src/archivosExternos/agendaFisica.properties"));
+					("archivosExternos\\agendaFisica.properties"));
 			listar();
 		} catch (FileNotFoundException e) {
 			throw new Exception("La ruta del archivo no se pudo encontrar");
@@ -75,13 +76,8 @@ public class ManejoArchivos {
 			fila = fila + 1;
 			
 			System.out.println("pokemon "+ i + ":" + nombre);
-			
-			pokemones.add(nombre);
-			pokemones.add(tipo);
-			pokemones.add(velocidad);
-			pokemones.add(ataque);
-			pokemones.add(defensa);
-			pokemones.add(salud);
+			pokemon = new Pokemon(nombre,tipo,velocidad,ataque,defensa,salud);
+			pokemones.add(pokemon);
 		}
 		
 		return nombresPokemones;
@@ -93,6 +89,14 @@ public class ManejoArchivos {
 
 	public void setNombresPokemones(String[][] nombresPokemones) {
 		this.nombresPokemones = nombresPokemones;
+	}
+
+	public ArrayList<Pokemon> getPokemones() {
+		return pokemones;
+	}
+
+	public void setPokemones(ArrayList<Pokemon> pokemones) {
+		this.pokemones = pokemones;
 	}
 
 }

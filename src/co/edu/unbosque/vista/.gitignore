@@ -1,11 +1,6 @@
-/Keys.class
-/Start.class
-/pnlAtaque$1.class
-/pnlAtaque$2.class
-/pnlAtaque.class
-/pnlPanelSeleccion$1.class
-/pnlPanelSeleccion$2.class
-/pnlPanelSeleccion.class
-/tblAdministracionCeldas.class
-/tblEstiloEncabezado.class
-/tblModeloTabla.class
+/AdministracionCeldas.class
+/Ataque.class
+/MarcoPrincipal.class
+/ModeloTabla.class
+/PanelSeleccion$1.class
+/PanelSeleccion$2.class

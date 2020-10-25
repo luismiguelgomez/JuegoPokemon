@@ -1,7 +1,23 @@
 package co.edu.unbosque.modelo;
 
+import java.util.ArrayList;
+
 public class Usuario {
-//Pokemones vector Bolsillo  +5
-//Arraylist Pokemones 15+
-//tipo usuario boolean true= usuario false=sistema
+	private ArrayList<Pokemon> bolsillo;
+
+	public Usuario(ArrayList<Pokemon> bolsillo) {
+		super();
+		this.bolsillo = bolsillo;
+	}
+
+	public ArrayList<Pokemon> getBolsillo() {
+		return bolsillo;
+	}
+
+	public void setBolsillo(ArrayList<Pokemon> bolsillo) {
+		this.bolsillo = bolsillo;
+	}
+	
+	
+
 }

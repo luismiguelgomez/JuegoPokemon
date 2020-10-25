@@ -2,6 +2,7 @@ package co.edu.unbosque.vista;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTable;

@@ -1,7 +1,5 @@
 package co.edu.unbosque.vista;
 
-import javax.swing.JFrame;
-
 public class VentanaPrincipal {
 
 	public static void main(String[] args) {
